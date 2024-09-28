@@ -24,9 +24,19 @@ contract ToDoList{
     event TaskUpdated(uint id, address owner, string content);
     event TaskToggled(uint id, address owner, bool completed);
 
+    function getTask(uint _id) public view returns(Task memory){
+        require(msg.sender == tasks[_id].owner, "You cannot view other's tasks");
+        return tasks[_id];
+    }
+
+    function getTaskCountByOwner(address _owner) public view returns(uint){
+        return taskCountByOwner[_owner];
+    }
+
 
     function addTask(string memory _content, address _owner) public{
         require(_owner == msg.sender, "You cannot add tasks to other's list");
+
         tasks[taskCount] = Task(taskCount, _owner, _content, false);
         taskCountByOwner[_owner]++;
         taskCount++;
