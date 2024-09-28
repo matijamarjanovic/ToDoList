@@ -15,7 +15,7 @@ export default function Home() {
         const provider = new JsonRpcProvider('http://127.0.0.1:8545');
 
         // Use a known Hardhat account (address 0) for testing
-        const hardhatAccount = "0xdD2FD4581271e230360230F9337D5c0430Bf44C0"; // Replace with one of Hardhat's default addresses
+        const hardhatAccount = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"; // Replace with one of Hardhat's default addresses
 
         // Set the connected account
         setAccount(hardhatAccount);
